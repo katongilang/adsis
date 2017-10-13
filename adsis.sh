@@ -55,6 +55,10 @@ fi
 
 
 restore_fungsi(){
+
+#GRANLY H RUMONDOR
+#71150024
+
   echo -e "Masukkan hasil Backup untuk di Restore ( menggunakan Full PATH ! ) : \c" #/home/katongilang/bakp.tar.gz
   read input1 # /home/granly/backup.13-Oct-17_13:27:49.tar.gz
 
