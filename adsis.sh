@@ -99,7 +99,75 @@ restore_fungsi(){
 }
 
 
+clear_cache_fungsi(){
 
+#FELIX EVAN SANTOSO
+#71150002
+
+echo "Apakah anda ingin menampilkan info memory anda? (y/n)"
+read text
+case $text in
+y ) cat /proc/meminfo
+    echo "Apakah anda ingin membersihkannya? (y/n)"
+      read input
+      case $input in
+      y )
+	  if [[ $EUID -ne 0 ]]; then
+		echo "Anda harus sebagai user root !" >&2
+		exit 1
+	  fi
+
+	  # mendapatkan info memory
+	  mem_sebelum=$(cat /proc/meminfo | grep MemFree | tr -s ' ' | cut -d ' ' -f2) &&
+	  mem_sebelum=$(echo "mem_sebelum/1024.0" | bc)
+	  cached_sebelum=$(cat /proc/meminfo | grep "^Cached" | tr -s ' ' | cut -d ' ' -f2) &&
+	  cached_sebelum=$(echo "$cached_sebelum/1024.0" | bc)
+
+	  # informasi
+	  echo -e "Script ini akan membersihkan cache memory merefresh ram anda.\n\nMemory Sebelum
+	  $cached_sebelum MiB untuk cached dan $mem_sebelum MiB untuk RAM"
+
+	  #Testing
+
+	  #if [ $? -ne 0 ]; then
+	#	  echo "Sistem menemukan adanya kesalahan"
+	#	  exit 1
+	 # fi
+
+	  #membersihkan filesystem
+	  sync && echo 3 > /proc/sys/vm/drop_caches
+
+	  mem_sesudah=$(cat /proc/meminfo | grep MemFree | tr -s ' ' | cut -d ' ' -f2) &&
+	  mem_sesudah=$(echo "mem_sesudah/1024.0" | bc)
+
+	  #informasi sekarang
+	  echo -e "Memory sekarang  $(echo $mem_sesudah - $mem_sebelum | bc) MiB,
+	  sekarang anda memliki
+	  $mem_sesudah MiB free RAM"
+
+	  exit
+      ;;
+      n )
+      echo "Terimakasih"
+      sleep 1
+      menu_fungsi
+      ;;
+      * )
+      echo "input error"
+      sleep 1
+      menu_fungsi
+      ;;
+      esac
+  ;;
+  n ) echo "Terimakasih"
+      sleep 1
+      menu_fungsi
+  ;;
+  * ) echo "Inputan error"
+  ;;
+esac
+
+}
 
 
 
