@@ -39,6 +39,11 @@ backup_fungsi (){
     exit
 fi
 }
+restore_fungsi(){
+  echo -e "Masukkan hasil Backup untuk di Restore ( menggunakan Full PATH ! ) : \c" #/home/katongilang/bakp.tar.gz
+  read input1 # /home/granly/backup.13-Oct-17_13:27:49.tar.gz
+
+  if [ -f $input1 ]; then
 
 	COUNTER=0
 	echo "Tunggu ... "
@@ -54,6 +59,13 @@ fi
 	date
 	echo "==========================="
 	exit
+	
+   else
+    echo "Tidak ditemukan !"
+    sleep 2
+    menu_fungsi
+  fi
+}
 
 menu_fungsi(){
 clear
