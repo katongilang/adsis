@@ -37,11 +37,23 @@ backup_fungsi (){
     echo "Waktu Sekarang : `date` "
     echo "======================"
     exit
-
-
-
 fi
 }
+
+	COUNTER=0
+	echo "Tunggu ... "
+	while [ $COUNTER -lt 4 ]; do
+	 sleep 1
+	 echo "..."
+	 let COUNTER=COUNTER+1
+	done
+	
+	tar xvzfP $input1 #diextract
+	
+	echo "Restore COMPLETE!"
+	date
+	echo "==========================="
+	exit
 
 menu_fungsi(){
 clear
