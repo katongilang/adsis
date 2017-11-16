@@ -42,3 +42,35 @@ backup_fungsi (){
 
 fi
 }
+
+menu_fungsi(){
+clear
+
+echo "====================================================="
+echo "=================== MENU SLACKWARE =================="
+echo "====================================================="
+
+
+OPTIONS=("Backup" "Restore" "Keluar")
+select opt in "${OPTIONS[@]}"
+do
+  case $opt in
+    "Backup")
+	backup_fungsi
+	;;
+    "Restore")
+	restore_fungsi
+	;;
+    "Keluar")
+	echo "GOODBYE !"
+	sleep 2
+	clear
+	exit
+	;;
+	*) echo jangan ngaco kalo input !;;
+  esac
+ done
+ }
+
+ #main
+ menu_fungsi #panggil fungsi menu
