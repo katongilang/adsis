@@ -1,4 +1,3 @@
-
 #!/bin/bash
 
 backup_fungsi (){
@@ -88,7 +87,7 @@ echo "=================== MENU SLACKWARE =================="
 echo "====================================================="
 
 
-OPTIONS=("Backup" "Restore" "Keluar")
+OPTIONS=("Backup Folder" "Restore" "Keluar")
 select opt in "${OPTIONS[@]}"
 do
   case $opt in
