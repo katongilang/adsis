@@ -91,7 +91,7 @@ OPTIONS=("Backup Folder" "Restore" "Keluar")
 select opt in "${OPTIONS[@]}"
 do
   case $opt in
-    "Backup")
+    "Backup Folder")
 	backup_fungsi
 	;;
     "Restore")
