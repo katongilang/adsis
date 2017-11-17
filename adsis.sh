@@ -3,7 +3,14 @@
 
 backup_fungsi (){
 
+#cuma memberi warning supaya pake root
+  if [[ $EUID -ne 0 ]]; then #ngecek root ato bukan
+    echo "==Warning !! : Beberapa lokasi penyimpanan hasil backup akan terkena permission jika tidak menggunakan root" 1>&2
+    echo ""
+  fi
 
+  echo -e "Masukkan direktori yang ingin dibackup (menggunakan Full PATH !) : \c" #yang dibackup direktori
+  read BACKUP_FILE #contoh "/home/katongilang/test"
 
 #cek direktori
   if [ -d $BACKUP_FILE ]; then
@@ -37,6 +44,12 @@ backup_fungsi (){
     echo "Waktu Sekarang : `date` "
     echo "======================"
     exit
+    
+     else
+    echo "Tidak ada ditemukan ! karena bukan nama direktori !"
+    sleep 2
+    menu_fungsi
+
 fi
 }
 restore_fungsi(){
