@@ -22,8 +22,7 @@ TestCase : TC01 Validasi
 | `[namadomain].[tld]` | "[TIDAK VALID] Domain telah terdaftar" | domain random utk avaliablity |
 
 
-Test Case : TC02 Pricing
-Pre-conditions : Proses setelah input domain
+Test Case : TC02 Pricing , Pre-conditions : Proses setelah input domain
 
 | INPUT | OUTPUT | KETERANGAN |
 | --- | --- | --- |
