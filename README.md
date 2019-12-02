@@ -10,6 +10,7 @@ info :
 - Karena tidak menggunakan PHPUNIT untuk TDD, jadi test nya manual :
 
 TestCase : TC01 Validasi
+
 | INPUT | OUTPUT | KETERANGAN |
 | --- | --- | --- |
 | `(null)` | "[TIDAK VALID] Silahkan Isi! Tidak boleh kosong" | Tanpa Input |
@@ -23,6 +24,7 @@ TestCase : TC01 Validasi
 
 Test Case : TC02 Pricing
 Pre-conditions : Proses setelah input domain
+
 | INPUT | OUTPUT | KETERANGAN |
 | --- | --- | --- |
 | `[namadomain].[tld]` | Muncul Invoice list harga | syarat: harus [VALID] |
